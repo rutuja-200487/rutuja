@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -p "https://www.bing.com/images/ " website
+
+if ping -c 1 "$website" &> /dev/null; then
+    echo "Website $website is reachable."
+else
+    echo "Website $website is down or unreachable."
+fi
+
+
+

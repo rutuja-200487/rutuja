@@ -1,0 +1,6 @@
+#!/bin/bash
+read -p "Enter a string: " str
+reversed_str=$(echo "$str" | rev)
+echo " Reversed string: $reversed_str"
+
+

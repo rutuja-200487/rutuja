@@ -1,0 +1,7 @@
+#!/bin/bash
+arr=(24 27 84 11 99)
+echo "Original array: ${arr[*]}"
+read -p "Enter the element to insert: " element
+read -p "Enter the position to insert (0-${#arr[@]}): " position
+arr=("${arr[@]:0:$position}" "$element" "${arr[@]:$position}")
+echo "Updated array: ${arr[*]}"

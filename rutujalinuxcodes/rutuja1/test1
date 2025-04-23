@@ -1,0 +1,8 @@
+#!/bin/bash
+read -p "Enter a number: " num
+width=5
+
+padded_num=$(printf "%0${width}d" "$num")
+echo "Padded Number: $padded_num"
+
+

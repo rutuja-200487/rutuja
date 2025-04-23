@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR=${1:-.}
+
+echo "Scanning directory: $DIR"
+
+# Find duplicate files based on their MD5 hash
+find "$DIR" -type f -exec md5sum {} + | sort | awk '{
+    if ($1 in seen) {
+        print "Duplicate: " $0;
+    } else {
+        seen[$1] = $2;
+    }
+}'
+

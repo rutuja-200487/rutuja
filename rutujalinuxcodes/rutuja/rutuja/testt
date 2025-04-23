@@ -1,0 +1,26 @@
+#!/bin/bash
+#!/bin/bash
+
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 <input_image> <eroded_output> <dilated_output>"
+    exit 1
+fi
+
+INPUT_IMAGE="$1"
+ERODED_OUTPUT="$2"
+DILATED_OUTPUT="$3"
+
+# Check if input file exists
+if [ ! -f "C:/Users/Rutuja\/ownloads/WhatsApp Image 2025-03-30 at 15.17.47.jpeg" ]; then
+    echo "Error: Input image '$INPUT_IMAGE' not found!"
+    exit 1
+fi
+
+# Perform Erosion
+convert "$INPUT_IMAGE" -morphology Erode Diamond "$ERODED_OUTPUT"
+
+# Perform Dilation
+convert "$INPUT_IMAGE" -morphology Dilate Diamond "$DILATED_OUTPUT"
+
+echo "Erosion and Dilation completed."
+

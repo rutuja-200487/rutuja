@@ -1,0 +1,16 @@
+#!/bin/bash
+a=0
+b=1
+echo "The first 10 Fibonacci numbers are:"
+echo -n "$a $b "
+for ((i=3; i<=10; i++)); do
+    fib=$((a + b))  
+    echo -n "$fib " 
+    a=$b  
+    b=$fib
+done
+
+echo
+
+
+

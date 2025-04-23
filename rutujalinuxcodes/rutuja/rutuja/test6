@@ -1,0 +1,8 @@
+#!/bin/bash
+PI=3.14159
+
+read -p "Enter the radius of the circle: " radius
+area=$(echo "$PI * $radius * $radius" | bc)
+echo " The area of the circle with radius $radius is: $area"
+
+

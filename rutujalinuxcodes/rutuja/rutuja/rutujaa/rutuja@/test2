@@ -1,0 +1,20 @@
+#!/bin/bash
+
+generate_histogram() {
+    local values=("$@")  # Store input values in an array
+
+    echo "Histogram:"
+    for value in "${values[@]}"; do
+        printf "%3d | " "$value"  # Print the number
+        for ((i=0; i<value; i++)); do
+            echo -n "#"  # Print histogram bars
+        done
+        echo ""
+    done
+}
+
+echo "Enter space-separated numbers for the histogram:"
+read -a numbers  # Read numbers into an array
+
+generate_histogram "${numbers[@]}"
+

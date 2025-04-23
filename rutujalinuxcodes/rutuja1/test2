@@ -1,0 +1,7 @@
+#!/bin/bash
+read -p "Enter the side length of the square: " side
+area=$((side * side))
+
+echo "The area of the square is: $area"        
+
+

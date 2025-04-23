@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Enter a number of which you want to find the factorial: " #takes input from user
+read num #reads into num variable
+fact=1 #to declare a start for fact
+for((i=2; i<=num; i++)) #initialize the for loop
+do
+fact=$((fact*i))
+done
+echo "The factorial of $num is $fact" #print the output

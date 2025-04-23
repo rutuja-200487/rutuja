@@ -1,0 +1,6 @@
+#!/bin/bash
+DIR=${1:-.}
+
+echo "Searching for files larger than 100MB in: $DIR"
+find "$DIR" -type f -size +100M -exec ls -lh {} + | awk '{ print $9, $5 }'
+

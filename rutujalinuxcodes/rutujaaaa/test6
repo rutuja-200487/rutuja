@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Last Login Details:"
+last -n 1
+echo "--------------------------------"
+echo "System and User Information:"
+echo "Hostname: $(hostname)"
+echo "Username: $USER"
+echo "Shell: $SHELL"
+echo "Home Directory: $HOME"
+echo "--------------------------------"
+echo "Process List (Sorted by Username):"
+ps -eo pid,user,group,nice,vsize,rss,comm --sort=user
+echo "--------------------------------"
+echo "Upgrading and cleaning the system..."
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean
+echo "--------------------------------"
+echo "Files under /var/spool not owned by root:"
+sudo find /var/spool ! -user root -exec ls -l {} +
+echo "--------------------------------"
+
+

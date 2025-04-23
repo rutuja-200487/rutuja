@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+# Prompt user for filename
+read -p "test27: " filename
+
+# Check if file exists
+if [[ ! -f "$filename" ]]; then
+    echo "Error: File does not exist!"
+    exit 1
+fi
+
+# Display file content
+echo "Displaying content of $filename:"
+cat "$filename"
+

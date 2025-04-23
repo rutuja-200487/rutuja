@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Display the hostname of the system
+echo "The hostname of this system is: $(hostname)"
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+read -p "Enter a string: " str
+length=${#str}
+echo " The length of the string \"$str\" is: $length"
+
+
+
+

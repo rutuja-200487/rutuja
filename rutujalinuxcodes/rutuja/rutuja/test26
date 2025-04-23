@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Display system uptime
+echo "System Uptime:"
+uptime
+

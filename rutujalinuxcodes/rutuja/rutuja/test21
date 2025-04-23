@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SERVICE_NAME="apache2"
+
+while true; do
+    if ! systemctl is-active --quiet "$SERVICE_NAME"; then
+        echo "$SERVICE_NAME is down! Restarting..."
+        systemctl restart "$SERVICE_NAME"
+    fi
+    sleep 10
+done
+
+

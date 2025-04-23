@@ -1,0 +1,13 @@
+#!/bin/bash
+arr=(24 27 84 11 99)
+echo "Given array: ${arr[*]}"
+sum=0
+n=${#arr[@]}
+for num in "${arr[@]}"
+do
+    sum=$((sum + num))
+done
+average=$(echo "scale=2; $sum / $n" | bc)
+echo "Average of the array: $average"
+
+

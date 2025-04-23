@@ -1,0 +1,14 @@
+#!/bin/bash
+THRESHOLD=80
+EMAIL="2022.rutuja.waingade@ves.ac.in"
+
+DISK_USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+
+if [ "$DISK_USAGE" -gt "$THRESHOLD" ]; then
+    # Prepare the alert message
+    MESSAGE="Warning: Disk usage is at ${DISK_USAGE}% on $(hostname)"
+    
+    # Send email alert (requires mail utility)
+    echo "$MESSAGE" | mail -s "Disk Space Alert on $(hostname)" "$EMAIL"
+fi
+

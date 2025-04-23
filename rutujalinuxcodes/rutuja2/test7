@@ -1,0 +1,39 @@
+
+#!/bin/bash
+encrypt_file() {
+    read -p "Enter the file to encrypt: " file
+    if [[ -f "$file" ]]; then
+        openssl enc -aes-256-cbc -salt -in "$file" -out "$file.enc"
+        echo "File encrypted successfully: $file.enc"
+    else
+        echo "Error: File does not exist!"
+    fi
+}
+decrypt_file() {
+    read -p "Enter the file to decrypt: " file
+    if [[ -f "$file" ]]; then
+        openssl enc -aes-256-cbc -d -in "$file" -out "${file%.enc}.dec"
+        echo "File decrypted successfully: ${file%.enc}.dec"
+    else
+        echo "Error: File does not exist!"
+    fi
+}
+while true; do
+    echo "--------------------------"
+    echo "   File Encryption Menu"
+    echo "--------------------------"
+    echo "1. Encrypt a file"
+    echo "2. Decrypt a file"
+    echo "3. Exit"
+    echo "--------------------------"
+
+    read -p "Enter your choice: " choice
+
+    case $choice in
+        1) encrypt_file ;;
+        2) decrypt_file ;;
+        3) echo "Exiting..."; exit 0 ;;
+        *) echo "Invalid choice! Please select again." ;;
+    esac
+done
+

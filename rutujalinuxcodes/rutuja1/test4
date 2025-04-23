@@ -1,0 +1,9 @@
+#!/bin/bash
+PI=3.14159
+read -p "Enter the radius of the circle: " radius
+circumference=$(echo "2 * $PI * $radius" | bc)
+
+echo "The circumference of the circle is: $circumference"
+
+
+

@@ -1,0 +1,20 @@
+#!/bin/bash
+read -p ": " test27:"filename
+
+
+if [[ ! -f "$test27" ]]; then
+    echo "Error: File does not exist!"
+    exit 1
+fi
+
+
+lines=$(wc -l < "$test27")
+words=$(wc -w < "$test27")
+chars=$(wc -c < "$test27")
+
+
+echo "File: $test27"
+echo "Number of lines: $lines"
+echo "Number of words: $words"
+echo "Number of characters: $chars"
+

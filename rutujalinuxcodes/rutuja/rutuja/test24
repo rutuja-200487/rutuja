@@ -1,0 +1,11 @@
+
+#!/bin/bash
+
+echo "Rutuja: "
+read name
+
+echo "Hello, $name! Welcome to Linux Bash scripting."
+
+
+
+

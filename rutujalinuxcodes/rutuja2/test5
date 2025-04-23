@@ -1,0 +1,17 @@
+#!/bin/bash
+read -p "Enter the name of the file or directory to compress: " target
+
+
+if [[ ! -e "$target" ]]; then
+    echo "Error: The file or directory does not exist!"
+    exit 1
+fi
+read -p "Enter the name of the output compressed file (without extension): " output
+tar -czvf "${output}.tar.gz" "$target"
+if [[ $? -eq 0 ]]; then
+    echo "Compression successful! File saved as ${output}.tar.gz"
+else
+    echo "Compression failed!"
+fi
+
+

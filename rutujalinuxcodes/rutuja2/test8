@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <username_file>"
+    exit 1
+fi
+
+USER_FILE=$1
+if [ ! -f "$USER_FILE" ]; then
+    echo "Error: File not found!"
+    exit 1
+fi
+while read -r username; do
+    if id "$username" &>/dev/null; then
+        echo "User $username already exists. Skipping..."
+    else
+        sudo useradd -m -s /bin/bash "$username"
+        echo "User $username created successfully."
+    fi
+done < "$USER_FILE"
+
+echo "All users processed."
+

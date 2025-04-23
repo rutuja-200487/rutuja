@@ -1,0 +1,17 @@
+
+#!/bin/bash
+DB_USER="your_username"
+DB_PASSWORD="your_password"
+DB_NAME="your_database"
+BACKUP_DIR="/backup"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+mkdir -p "$BACKUP_DIR"
+mysqldump -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" > "$BACKUP_DIR/$DB_NAME-$DATE.sql"
+
+if [ $? -eq 0 ]; then
+    echo "Backup successful: $BACKUP_DIR/$DB_NAME-$DATE.sql"
+else
+    echo "Backup failed!"
+fi
+

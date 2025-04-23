@@ -1,0 +1,5 @@
+#!/bin/bash
+arr=(24 27 84 11 99)
+echo "Given array: ${arr[*]}"
+sorted_arr=($(printf "%s\n" "${arr[@]}" | sort -n))
+echo "Sorted array in ascending order: ${sorted_arr[*]}"
